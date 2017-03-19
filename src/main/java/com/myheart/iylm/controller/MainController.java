@@ -23,7 +23,7 @@ public class MainController {
     public String home(Locale locale, Model model) {
         //	    List
         model.addAttribute("drugSelect", drugService.selectDrug());
-
+        System.out.println("test");
         return "home";
     }
 
