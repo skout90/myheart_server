@@ -7,10 +7,10 @@
 <body>
 <h1>
 	<c:forEach items="${drugSelect}" var="item">
-		${item.drugCd}</br>
-		${item.drugNm}</br>
-		${item.mainIngredientCd}</br>
-		${item.description}</br>
+		${item.drugCd}<br/>
+		${item.drugNm}<br/>
+		${item.mainIngredientCd}<br/>
+		${item.description}<br/>
 	</c:forEach> 
 	
 </h1>
