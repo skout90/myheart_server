@@ -24,7 +24,7 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.myheart.iylm.controller" />
-	<context:component-scan base-package="com.myheart.iylm.service.impl" />
+	<context:component-scan base-package="com.myheart.iylm.service" />
 	
 	<beans:bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
