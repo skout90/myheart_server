@@ -1,3 +1,8 @@
+# target folder
+target/
+
+pom.properties
+
 # Compiled class file
 *.class
 
