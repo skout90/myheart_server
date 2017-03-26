@@ -15,12 +15,12 @@ import com.myheart.iylm.service.impl.UserService;
  * Description :
  * Modification Information
  *
- *    수정일　　　 　　  수정자　　　     수정내용
- *    ────────────   ─────────   ───────────────────────────────
- *    2017. 3. 26.   지선학              최초생성
+ *    �닔�젙�씪������ ����  �닔�젙�옄������     �닔�젙�궡�슜
+ *    ������������������������   ������������������   ��������������������������������������������������������������
+ *    2017. 3. 26.   吏��꽑�븰              理쒖큹�깮�꽦
  * </pre>
  *
- * @author 지선학
+ * @author 吏��꽑�븰
  * @since 2017. 3. 26.
  * @version 1.0
  *
@@ -48,6 +48,7 @@ public class UserController {
 		
 		userService.insertUserService(userVo);
 
+		
 		return "userService";
 	}
 	
