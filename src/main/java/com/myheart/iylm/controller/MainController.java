@@ -41,7 +41,8 @@ public class MainController {
         log.warn("warn");
         log.error("error");
 
-        return "home";
-    }
+		return "home";
+	}
+
 
 }
