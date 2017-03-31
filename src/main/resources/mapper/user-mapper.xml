@@ -5,20 +5,35 @@
 <mapper namespace="com.myheart.iylm.mapper.UserMapper">
 
 <insert id="insertUser">
-	insert into tb_user(user_id, sns_id, sns_type, username, password, phone_num, email, reg_dt) 
-	values(#{user_id}, #{sns_id},#{sns_type},#{username},#{password},#{phone_num},#{email},#{reg_dt})
+	INSERT INTO tb_user(USER_ID, SNS_ID, SNS_TYPE, USERNAME, PASSWORD, PHONE_NUM, EMAIL, REG_DT) 
+	VALUES(#{userId}, #{snsId},#{snsType},#{userName},#{password},#{phoneNum},#{email},#{reqDt})
 </insert>
 
-<!-- 	<resultMap id="DrugInfo" type="com.myheart.iylm.dto.DrugDto"> -->
-<!-- 		<result property="drugCd" column="drug_cd" /> -->
-<!-- 		<result property="drugNm" column="drug_nm" /> -->
-<!-- 		<result property="mainIngredientCd" column="main_ingredient_cd" /> -->
-<!-- 		<result property="description" column="description" /> -->
-<!-- 	</resultMap> -->
+	<resultMap id="selectUserInfo" type="com.myheart.iylm.vo.UserVo">
+		<result property="userNo" column="user_no"/>
+		<result property="userId" column="user_id" />
+		<result property="snsId" column="sns_id" />
+		<result property="snsType" column="sns_type" />
+		<result property="userName" column="username" />
+		<result property="password" column="password" />
+		<result property="phoneNum" column="phone_num" />
+		<result property="email" column="email" />
+		<result property="reqDt" column="reg_dt" />
+	</resultMap>
 
-<!-- 	<select id="selectDrugInfo" resultMap="DrugInfo"> -->
-<!-- 		select * from tb_drug -->
-<!-- 	</select> -->
+	<select id="selectUserList" resultMap="selectUserInfo">
+		SELECT * FROM tb_user
+	</select>
+	
+	<select id="searchUserListById" parameterType="map" resultType="hashmap">
+		SELECT * FROM tb_user WHERE user_id = #{userId}
+	</select>
+	
+	<select id="loginUserChkIdPass" parameterType="map" resultType="int">
+ 		select count(*) as count from tb_user
+ 		where user_id = #{userId}
+ 		and password = #{password}
+ 	</select>
 
 	
 
