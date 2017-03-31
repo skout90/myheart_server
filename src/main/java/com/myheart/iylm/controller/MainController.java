@@ -21,10 +21,10 @@ import com.myheart.iylm.vo.ScheduleVo;
 @Controller
 public class MainController {
 
-    @Autowired(required = false)
+	@Autowired(required = false)
     DrugService drugService;
 
-    @Autowired(required = true)
+    @Autowired(required = false)
     ScheduleService scheduleService;
 
     //    Log log = LogFactory.getLog(MainController.class);

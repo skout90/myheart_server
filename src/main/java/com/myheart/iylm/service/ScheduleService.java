@@ -11,28 +11,29 @@ import com.myheart.iylm.vo.ScheduleVo;
 /**
  * <pre>
  * Class Name  : ScheduleService.java
- * Description : 스케줄 서비스
+ * Description : �뒪耳�以� �꽌鍮꾩뒪
  * Modification Information
  *
- *    수정일　　　 　　  수정자　　　     수정내용
- *    ────────────   ─────────   ───────────────────────────────
- *    2017. 3. 24.   남준호              최초생성
+ *    �닔�젙�씪������ ����  �닔�젙�옄������     �닔�젙�궡�슜
+ *    ������������������������   ������������������   ��������������������������������������������������������������
+ *    2017. 3. 24.   �궓以��샇              理쒖큹�깮�꽦
  * </pre>
  *
- * @author 남준호
+ * @author �궓以��샇
  * @since 2017. 3. 24.
  * @version 1.0
  *
  * Copyright (C) 2017 by MyHeart All right reserved.
  */
-@Service
+@Service("scheduleService")
 public class ScheduleService {
+	
     @Autowired
     ScheduleMapper scheduleMapper;
 
     /**
-     * @Author 남준호
-     * @Comment 스케줄 리스트를 리턴합니다.
+     * @Author �궓以��샇
+     * @Comment �뒪耳�以� 由ъ뒪�듃瑜� 由ы꽩�빀�땲�떎.
      * @param scheduleVo
      * @return
      * @throws Exception
