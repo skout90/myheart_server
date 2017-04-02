@@ -2,16 +2,43 @@ package com.myheart.iylm.vo;
 
 import java.util.Date;
 
+/**
+ * <pre>
+ * Class Name  : UserVo.java
+ * Description :
+ * Modification Information
+ *
+ *    수정일　　　 　　  수정자　　　     수정내용
+ *    ────────────   ─────────   ───────────────────────────────
+ *    2017. 4. 2.   지선학              최초생성
+ * </pre>
+ *
+ * @author 지선학
+ * @since 2017. 4. 2.
+ * @version 1.0
+ *
+ * Copyright (C) 2017 by MYHEART All right reserved.
+ */
+
 public class UserVo {
 
+	//사용자 번호
 	private int userNo;
+	//사용자 ID
 	private String userId;
+	//SNS 고유 ID
 	private String snsId;
+	//SNS 유형
 	private String snsType;
+	//사용자 이름
 	private String userName;
+	//패스워드
 	private String password;
+	//폰 번호
 	private String phoneNum;
+	//이메일
 	private String email;
+	//등록일자
 	private Date reqDt;
 
 	public int getUserNo() {

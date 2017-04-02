@@ -16,16 +16,16 @@ import com.myheart.iylm.vo.UserVo;
 
 /**
  * <pre>
- * Class Name  : UserController.java
+ * Class Name  : UserRestController.java
  * Description :
  * Modification Information
  *
- *    �����ϡ����� ����  �����ڡ�����     ��������
- *    ������������������������   ������������������   ��������������������������������������������������������������
- *    2017. 3. 26.   ������              ����� ȸ������ ����
+ *    수정일　　　 　　  수정자　　　     수정내용
+ *    ────────────   ─────────   ───────────────────────────────
+ *    2017. 3. 26.   지선학              최초생성
  * </pre>
  *
- * @author ������
+ * @author 지선학
  * @since 2017. 3. 26.
  * @version 1.0
  *
