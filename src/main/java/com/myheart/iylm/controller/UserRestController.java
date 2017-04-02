@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.myheart.iylm.service.UserService;
 import com.myheart.iylm.vo.UserVo;
@@ -21,12 +20,12 @@ import com.myheart.iylm.vo.UserVo;
  * Description :
  * Modification Information
  *
- *    ¼öÁ¤ÀÏ¡¡¡¡¡¡ ¡¡¡¡  ¼öÁ¤ÀÚ¡¡¡¡¡¡     ¼öÁ¤³»¿ë
- *    ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡   ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡   ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
- *    2017. 3. 26.   Áö¼±ÇÐ              »ç¿ëÀÚ È¸¿ø°¡ÀÔ ±¸Çö
+ *    ï¿½ï¿½ï¿½ï¿½ï¿½Ï¡ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½Ú¡ï¿½ï¿½ï¿½ï¿½ï¿½     ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ *    ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ *    2017. 3. 26.   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½              ï¿½ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
  * </pre>
  *
- * @author Áö¼±ÇÐ
+ * @author ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * @since 2017. 3. 26.
  * @version 1.0
  *
@@ -34,68 +33,62 @@ import com.myheart.iylm.vo.UserVo;
  */
 
 @RestController
-@RequestMapping(value="/user")
+@RequestMapping(value = "/user")
 public class UserRestController {
-	
-	 @Autowired
-	 UserService userService;
-	
+
+	@Autowired
+	UserService userService;
 
 	/**
-	 * @Author Áö¼±ÇÐ
+	 * @Author ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @Comment
 	 * @param userVo
 	 * @param model
 	 * @return
 	 */
-	 
 
-	@RequestMapping(value="insertUser",  method = RequestMethod.POST)
-	public void insertUser(UserVo userVo){
-		
+	@RequestMapping(value = "insertUser", method = RequestMethod.POST)
+	public void insertUser(UserVo userVo) {
+
 		Date date = new Date();
 		userVo.setReqDt(date);
-		
+
 		userService.insertUserService(userVo);
 	}
-	
-	@RequestMapping(value="selectUserList", method = RequestMethod.GET)
-	public List<UserVo> selectUserList(UserVo userVo,Model model) throws Exception{
+
+	@RequestMapping(value = "selectUserList", method = RequestMethod.GET)
+	public List<UserVo> selectUserList(UserVo userVo, Model model) throws Exception {
 
 		model.addAttribute("selectUserList", userService.selectUserList(userVo));
-		
+
 		return userService.selectUserList(userVo);
 	}
-	
-	@RequestMapping(value="searchUserListById", method = RequestMethod.POST)
-	public List<UserVo> searchUserListById(@RequestParam("userId") String userId, HashMap<String, Object> userIdMap) throws Exception{
+
+	@RequestMapping(value = "searchUserListById", method = RequestMethod.POST)
+	public List<UserVo> searchUserListById(@RequestParam("userId") String userId, HashMap<String, Object> userIdMap) throws Exception {
 		System.out.println("searchUserListById()");
 		System.out.println(userId);
 		userIdMap.put("userId", userId);
-		
-		List<UserVo> result = userService.searchUserListById(userIdMap); 
+
+		List<UserVo> result = userService.searchUserListById(userIdMap);
 		System.out.println(result);
 		return result;
-		
+
 	}
-	
-	@RequestMapping(value="loginService", method=RequestMethod.POST)
-	public boolean loginService(@RequestParam("loginUserId") String loginUserId, @RequestParam("loginPassword") String loginPassword) throws Exception{
-		
+
+	@RequestMapping(value = "loginService", method = RequestMethod.POST)
+	public boolean loginService(@RequestParam("loginUserId") String loginUserId, @RequestParam("loginPassword") String loginPassword) throws Exception {
+
 		HashMap<String, Object> loginInfoMap = new HashMap<String, Object>();
 		loginInfoMap.put("userId", loginUserId);
 		loginInfoMap.put("password", loginPassword);
-		
-		if(userService.loginUserChkIdPass(loginInfoMap)>0){
+
+		if ( userService.loginUserChkIdPass(loginInfoMap) > 0 ) {
 			return true;
-		}else{
+		} else {
 			return false;
 		}
-		
-	}
-	
-	
 
-	
+	}
 
 }
