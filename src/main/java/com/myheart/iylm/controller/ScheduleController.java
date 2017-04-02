@@ -39,10 +39,8 @@ public class ScheduleController {
      * @param scheduleVo
      * @return
      */
-    @RequestMapping(value = "SelectScheduleList")
+    @RequestMapping(value = "selectScheduleList")
     public List<ScheduleVo> selectScheduleList(ScheduleVo scheduleVo) throws Exception {
-        //        HashMap<String, Object> map = new HashMap<>();
-        //        map.put("resultMap", );
         return this.scheduleService.selectList(scheduleVo);
     }
 }
