@@ -13,13 +13,13 @@
 	</resultMap>
 
 	<select id="selectDiseaseList" resultMap="DiseaseInfo">
-		SELECT disease_cd,
-			   disease_nm,
-			   disease_nm_en,
-			   description,
-			   type_cd1,
-			   type_cd2
-		FROM tb_disease
+		SELECT  disease_cd
+			    ,disease_nm
+			    ,disease_nm_en
+			    ,description
+			    ,type_cd1
+			    ,type_cd2
+		FROM	tb_disease
 		
 		<where>
 			<if test="searchType != null and searchName != null">
@@ -31,15 +31,13 @@
 	</select>
 	
 	<select id="selectDiseaseView" resultMap="DiseaseInfo">
-		SELECT disease_cd,
-			   disease_nm,
-			   disease_nm_en,
-			   description,
-			   type_cd1,
-			   type_cd2
-		FROM tb_disease
-
-		
+		SELECT  disease_cd
+			    ,disease_nm
+			    ,disease_nm_en
+			    ,description
+			    ,type_cd1
+			    ,type_cd2
+		FROM	tb_disease
 	</select>
 	
 	<insert id="insert"></insert>

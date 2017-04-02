@@ -1,15 +1,29 @@
 package com.myheart.iylm.vo;
 
-/*
- * DiseaseDto
+/**
+ * <pre>
+ * Class Name  : DiseaseVo.java
+ * Description :
+ * Modification Information
+ *
+ *    수정일　　　 　　  수정자　　　     수정내용
+ *    ────────────   ─────────   ───────────────────────────────
+ *    2017. 4. 2.   김민균              최초생성
+ * </pre>
+ *
+ * @author 김민균
+ * @since 2017. 4. 2.
+ * @version 1.0
+ *
+ * Copyright (C) 2017 by MyHeart All right reserved.
  */
 public class DiseaseVo {
 
-	private String diseaseCd; /* ���� �ڵ� */
-	private String diseaseNm; /* ���� ��Ī */
-	private String diseaseNmEn; /* ���� ��Ī(��) */
-	private String diseaseCd1; /* ���� �з�1 */
-	private String diseaseCd2; /* ���� �з�2 */
+	private String diseaseCd;
+	private String diseaseNm;
+	private String diseaseNmEn;
+	private String diseaseCd1;
+	private String diseaseCd2;
 
 	public String getDiseaseCd() {
 		return diseaseCd;

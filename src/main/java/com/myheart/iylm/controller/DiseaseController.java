@@ -18,20 +18,17 @@ import com.myheart.iylm.service.DiseaseService;
 import com.myheart.iylm.vo.DiseaseVo;
 
 /**
- * Handles requests for the application home page.
- */
-/**
  * <pre>
  * Class Name  : DiseaseController.java
- * Description : Áúº´ ÄÁÆ®·Ñ·¯
+ * Description :
  * Modification Information
  *
- *    ¼öÁ¤ÀÏ¡¡¡¡¡¡ ¡¡¡¡  ¼öÁ¤ÀÚ¡¡¡¡¡¡     ¼öÁ¤³»¿ë
- *    ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡   ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡   ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
- *    2017. 4. 2.   ±è¹Î±Õ              ÃÖÃÊ»ı¼º
+ *    ìˆ˜ì •ì¼ã€€ã€€ã€€ ã€€ã€€  ìˆ˜ì •ìã€€ã€€ã€€     ìˆ˜ì •ë‚´ìš©
+ *    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€   â”€â”€â”€â”€â”€â”€â”€â”€â”€   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+ *    2017. 4. 2.   ê¹€ë¯¼ê·               ìµœì´ˆìƒì„±
  * </pre>
  *
- * @author ±è¹Î±Õ
+ * @author ê¹€ë¯¼ê· 
  * @since 2017. 4. 2.
  * @version 1.0
  *
@@ -45,8 +42,8 @@ public class DiseaseController {
 	DiseaseService diseaseService;
 
 	/**
-	 * @Author ±è¹Î±Õ
-	 * @Comment
+	 * @Author ê¹€ë¯¼ê· 
+	 * @Comment ì§ˆë³‘ ëª©ë¡
 	 * @param req
 	 * @return
 	 */
