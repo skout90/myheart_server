@@ -1,6 +1,6 @@
 # target folder
 target/
-
+.settings/
 pom.properties
 rebel.xml
 
