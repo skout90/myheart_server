@@ -36,7 +36,7 @@ public class UserService {
 	/**
 	 * 
 	 * @Author SeonHakJi
-	 * @Comment
+	 * @Comment 사용자 등록
 	 * @param userVo
 	 */
 	public void insertUserService(UserVo userVo) {
@@ -48,7 +48,7 @@ public class UserService {
 	/**
 	 * 
 	 * @Author SeonHakJi
-	 * @Comment
+	 * @Comment 사용자 조회
 	 * @param userVo
 	 * @return
 	 * @throws Exception
@@ -61,7 +61,7 @@ public class UserService {
 	/**
 	 * 
 	 * @Author SeonHakJi
-	 * @Comment
+	 * @Comment ID로 사용자 조회
 	 * @param userId
 	 * @return
 	 * @throws Exception
@@ -74,7 +74,7 @@ public class UserService {
 	/**
 	 * 
 	 * @Author SeonHakJi
-	 * @Comment
+	 * @Comment ID, PASSWORD로 사용자 조회
 	 * @param loginInfo
 	 * @return
 	 */

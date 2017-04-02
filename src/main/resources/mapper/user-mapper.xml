@@ -1,16 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="com.myheart.iylm.mapper.UserMapper">
 
-<insert id="insertUser">
-	INSERT INTO tb_user(USER_ID, SNS_ID, SNS_TYPE, USERNAME, PASSWORD, PHONE_NUM, EMAIL, REG_DT) 
-	VALUES(#{userId}, #{snsId},#{snsType},#{userName},#{password},#{phoneNum},#{email},#{reqDt})
-</insert>
+	<insert id="insertUser">
+		INSERT INTO tb_user (
+			user_id
+			,sns_id
+			,sns_type
+			,username
+			,password
+			,phone_num
+			,email
+			,reg_dt
+		) VALUES (
+			#{userId}
+			,#{snsId}
+			,#{snsType}
+			,#{userName}
+			,#{password}
+			,#{phoneNum}
+			,#{email}
+			,#{reqDt}
+		)
+	</insert>
 
 	<resultMap id="selectUserInfo" type="com.myheart.iylm.vo.UserVo">
-		<result property="userNo" column="user_no"/>
+		<result property="userNo" column="user_no" />
 		<result property="userId" column="user_id" />
 		<result property="snsId" column="sns_id" />
 		<result property="snsType" column="sns_type" />
@@ -22,20 +38,22 @@
 	</resultMap>
 
 	<select id="selectUserList" resultMap="selectUserInfo">
-		SELECT * FROM tb_user
+		SELECT	*	
+		FROM	tb_user
 	</select>
-	
-	<select id="searchUserListById" parameterType="map" resultType="hashmap">
-		SELECT * FROM tb_user WHERE user_id = #{userId}
-	</select>
-	
-	<select id="loginUserChkIdPass" parameterType="map" resultType="int">
- 		select count(*) as count from tb_user
- 		where user_id = #{userId}
- 		and password = #{password}
- 	</select>
 
-	
+	<select id="searchUserListById" parameterType="map" resultType="hashmap">
+		SELECT	*	
+		FROM	tb_user 
+		WHERE	user_id		= #{userId}
+	</select>
+
+	<select id="loginUserChkIdPass" parameterType="map" resultType="int">
+		SELECT COUNT(*) AS count 
+		FROM	tb_user
+		WHERE	user_id		= #{userId}
+		AND		password	= #{password}
+	</select>
 
 </mapper>
      
