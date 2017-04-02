@@ -24,32 +24,11 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.myheart.iylm.controller" />
-	<context:component-scan base-package="com.myheart.iylm.service.impl" />
+	<context:component-scan base-package="com.myheart.iylm.service" />
 	
 	<beans:bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<beans:property name="basename" value="jdbc" />
 	</beans:bean>
-	
-	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-        <beans:property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <beans:property name="url" value="jdbc:mysql://junhodbinstance.crvjx5rsqvcn.ap-northeast-2.rds.amazonaws.com:3306/myheart"/>
-        <beans:property name="username" value="skout90"/>
-        <beans:property name="password" value="2323aa"/>
-    </beans:bean>
-  
-     <beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <beans:property name="dataSource" ref="dataSource" />
-        <beans:property name="mapperLocations" value="classpath*:/mapper/*.xml" />
-    </beans:bean>
-    
-    <beans:bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<beans:property name="basePackage" value="com.myheart.iylm.mapper" />
-	</beans:bean>
-     
-    <beans:bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
-        <beans:constructor-arg index="0" ref="sqlSession"/>
-    </beans:bean>  
-	
 	
 </beans:beans>
