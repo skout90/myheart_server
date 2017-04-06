@@ -4,6 +4,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.myheart.iylm.service.UserService;
+import com.myheart.iylm.vo.UserSnsVo;
 import com.myheart.iylm.vo.UserVo;
 
 /**
@@ -90,5 +94,23 @@ public class UserRestController {
 		}
 
 	}
+	
+	@RequestMapping(value="socialInsertUser", method= RequestMethod.POST)
+	public void socialLoginService(UserSnsVo userSnsVo, HttpServletResponse response){
+		//처음 sns를 통해서 사용자가 가입을 시도하면  Sns테이블과 User테이블에 
+		//응답받은 사용자 정보를 2개의 테이블에 저장 시킴
+		//User 테이블에 저장하지 못한 정보는 Sns에서 응답받은 정보로 처리 
+		//userid <- snsId , 연락처 <-없음
+		//기존 User 테이블에 SNS에서 전달받은 이메일 계정이 있으면 로그인
+		
+		
+		
+		Date date = new Date();
+		userSnsVo.setReqDt(date);
+		
+		userService.insertUserSnsService(userSnsVo);
+		
+	}
+	
 
 }

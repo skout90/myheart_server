@@ -3,6 +3,7 @@ package com.myheart.iylm.mapper;
 import java.util.HashMap;
 import java.util.List;
 
+import com.myheart.iylm.vo.UserSnsVo;
 import com.myheart.iylm.vo.UserVo;
 
 /**
@@ -11,12 +12,12 @@ import com.myheart.iylm.vo.UserVo;
  * Description :
  * Modification Information
  *
- *    수정일　　　 　　  수정자　　　     수정내용
- *    ────────────   ─────────   ───────────────────────────────
- *    2017. 4. 2.   지선학              최초생성
+ *    �닔�젙�씪������ ����  �닔�젙�옄������     �닔�젙�궡�슜
+ *    ������������������������   ������������������   ��������������������������������������������������������������
+ *    2017. 4. 2.   吏��꽑�븰              理쒖큹�깮�꽦
  * </pre>
  *
- * @author 지선학
+ * @author 吏��꽑�븰
  * @since 2017. 4. 2.
  * @version 1.0
  *
@@ -32,6 +33,12 @@ public interface UserMapper {
 	 * @param userVo
 	 */
 	public void insertUser(UserVo userVo);
+	
+	/**
+	 * 
+	 * @param userSnsVo
+	 */
+	public void insertSnsUser(UserSnsVo userSnsVo);
 	
 	/**
 	 * 
@@ -61,5 +68,8 @@ public interface UserMapper {
 	 * @return
 	 */
 	public int loginUserChkIdPass(HashMap<String, Object> loginInfo);
+	
+	
+	
 
 }

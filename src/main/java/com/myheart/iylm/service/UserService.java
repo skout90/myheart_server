@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.myheart.iylm.mapper.UserMapper;
+import com.myheart.iylm.vo.UserSnsVo;
 import com.myheart.iylm.vo.UserVo;
 
 /**
@@ -15,12 +16,12 @@ import com.myheart.iylm.vo.UserVo;
  * Description :
  * Modification Information
  *
- *    수정일　　　 　　  수정자　　　     수정내용
- *    ────────────   ─────────   ───────────────────────────────
- *    2017. 4. 2.   지선학              최초생성
+ *    �닔�젙�씪������ ����  �닔�젙�옄������     �닔�젙�궡�슜
+ *    ������������������������   ������������������   ��������������������������������������������������������������
+ *    2017. 4. 2.   吏��꽑�븰              理쒖큹�깮�꽦
  * </pre>
  *
- * @author 지선학
+ * @author 吏��꽑�븰
  * @since 2017. 4. 2.
  * @version 1.0
  *
@@ -36,7 +37,7 @@ public class UserService {
 	/**
 	 * 
 	 * @Author SeonHakJi
-	 * @Comment 사용자 등록
+	 * @Comment �궗�슜�옄 �벑濡�
 	 * @param userVo
 	 */
 	public void insertUserService(UserVo userVo) {
@@ -44,11 +45,19 @@ public class UserService {
 		this.userMapper.insertUser(userVo);
 
 	}
+	
+	/**
+	 * 
+	 * @param userSnsVo
+	 */
+	public void insertUserSnsService(UserSnsVo userSnsVo){
+		this.userMapper.insertSnsUser(userSnsVo);
+	}
 
 	/**
 	 * 
 	 * @Author SeonHakJi
-	 * @Comment 사용자 조회
+	 * @Comment �궗�슜�옄 議고쉶
 	 * @param userVo
 	 * @return
 	 * @throws Exception
@@ -61,7 +70,7 @@ public class UserService {
 	/**
 	 * 
 	 * @Author SeonHakJi
-	 * @Comment ID로 사용자 조회
+	 * @Comment ID濡� �궗�슜�옄 議고쉶
 	 * @param userId
 	 * @return
 	 * @throws Exception
@@ -74,7 +83,7 @@ public class UserService {
 	/**
 	 * 
 	 * @Author SeonHakJi
-	 * @Comment ID, PASSWORD로 사용자 조회
+	 * @Comment ID, PASSWORD濡� �궗�슜�옄 議고쉶
 	 * @param loginInfo
 	 * @return
 	 */

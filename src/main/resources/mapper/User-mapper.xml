@@ -24,6 +24,22 @@
 			,#{reqDt}
 		)
 	</insert>
+	
+	<insert id="insertSnsUser">
+		INSERT INTO tb_sns (
+			sns_id
+			,sns_type
+			,username
+			,email
+			,reg_dt
+		) VALUES (
+			#{snsId}
+			,#{snsType}
+			,#{userName}
+			,#{email}
+			,#{reqDt}
+		)
+	</insert>
 
 	<resultMap id="selectUserInfo" type="com.myheart.iylm.vo.UserVo">
 		<result property="userNo" column="user_no" />

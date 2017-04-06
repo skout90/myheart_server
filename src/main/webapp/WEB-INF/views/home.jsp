@@ -20,10 +20,10 @@
 
 											/* $("#kakao-profile").append(res.properties.nickname); */
 											/* $("#kakao-profile").append(res); */
-											console.log("res : "
-													+ JSON.stringify(res));
-											console.log("res.id : "
-													+ JSON.stringify(res.id));
+											
+											console.log("res : "+ JSON.stringify(res));
+											console.log("res.id : "+ JSON.stringify(res.id));
+											
 											/* 395287127
 											395287127 ->항상 일정 */
 											//console.log("res.properties"+JSON.stringify(res.properties));
@@ -127,80 +127,9 @@
 	</form> --%>
 
 
-	<script>
-		// initialize and setup facebook js sdk
-		window.fbAsyncInit = function() {
-			FB.init({
-				appId : '123354464869468',
-				xfbml : true,
-				version : 'v2.5'
-			});
-			FB
-					.getLoginStatus(function(response) {
-						if (response.status === 'connected') {
-							document.getElementById('status').innerHTML = 'We are connected.';
-							document.getElementById('login').style.visibility = 'hidden';
-						} else if (response.status === 'not_authorized') {
-							document.getElementById('status').innerHTML = 'We are not logged in.'
-						} else {
-							document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
-						}
-					});
-		};
+	
 
-		FB.Event.subscribe('auth.login', function(response) {
-			window.location.href = './userManageHome';
-		});
-
-		(function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id)) {
-				return;
-			}
-			js = d.createElement(s);
-			js.id = id;
-			js.src = "//connect.facebook.net/ko_KR/sdk.js";
-			fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
-
-		// login with facebook with extra permissions
-		function login() {
-			FB
-					.login(
-							function(response) {
-								if (response.status === 'connected') {
-									document.getElementById('status').innerHTML = 'We are connected.';
-									document.getElementById('login').style.visibility = 'hidden';
-
-								} else if (response.status === 'not_authorized') {
-									document.getElementById('status').innerHTML = 'We are not logged in.'
-								} else {
-									document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
-								}
-							}, {
-								scope : 'email'
-							});
-		}
-
-		// getting basic user info
-		function getInfo() {
-			FB.api('/me', 'GET', {
-				fields : 'first_name,last_name,name,id'
-			}, function(response) {
-				document.getElementById('status').innerHTML = response.id;
-				/* 1251786131604425
-				1251786131604425   -> 항상 일정 */
-			});
-		}
-	</script>
-
-	<div id="status"></div>
-	<button onclick="getInfo()">Token Info</button>
-	<br />
-	<button onclick="login()" id="login" class="fb-login-button"
-		data-auto-logout-link="true"></button>
-	<br />
-	<br />
+	
 
 	<div id="kakao-logged-group"></div>
 	<div id="kakao-profile"></div>
