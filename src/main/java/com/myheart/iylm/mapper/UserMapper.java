@@ -34,12 +34,12 @@ public interface UserMapper {
 	 */
 	public void insertUser(UserVo userVo);
 	
+	
 	/**
 	 * 
 	 * @param userSnsVo
 	 */
 	public void insertSnsUser(UserSnsVo userSnsVo);
-	
 	/**
 	 * 
 	 * @Author SeonHakJi
@@ -52,6 +52,28 @@ public interface UserMapper {
 	
 	/**
 	 * 
+	 * @param userSnsVo
+	 * @return
+	 * @throws Exception
+	 */
+	public List<UserSnsVo> selectSnsUserList(UserSnsVo userSnsVo) throws Exception;
+	/**
+	 * 
+	 * @param userId
+	 * @return
+	 * @throws Exception
+	 */
+	public  List<UserSnsVo> searchSnsUserListById(String snsId) throws Exception;
+	/**
+	 * 
+	 * @param email
+	 * @return
+	 * @throws Exception
+	 */
+	public List<UserSnsVo> searchSnsUserListByEmail(String email) throws Exception;
+	
+	/**
+	 * 
 	 * @Author SeonHakJi
 	 * @Comment
 	 * @param userId
@@ -59,7 +81,14 @@ public interface UserMapper {
 	 * @throws Exception
 	 */
 	public List<UserVo> searchUserListById(HashMap<String, Object> userId) throws Exception;
-
+	
+	/**
+	 * 
+	 * @param email
+	 * @return
+	 * @throws Exception
+	 */
+	public List<UserVo> searchUserListByEmail(String email) throws Exception;
 	/**
 	 * 
 	 * @Author SeonHakJi
@@ -68,7 +97,11 @@ public interface UserMapper {
 	 * @return
 	 */
 	public int loginUserChkIdPass(HashMap<String, Object> loginInfo);
-	
+	/**
+	 * 
+	 * @param email
+	 */
+	public void mergeAccount(HashMap<String,String> addInfo);
 	
 	
 

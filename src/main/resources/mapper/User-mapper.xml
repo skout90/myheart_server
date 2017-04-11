@@ -21,7 +21,7 @@
 			,#{password}
 			,#{phoneNum}
 			,#{email}
-			,#{reqDt}
+			,CURTIME()
 		)
 	</insert>
 	
@@ -37,9 +37,13 @@
 			,#{snsType}
 			,#{userName}
 			,#{email}
-			,#{reqDt}
+			,CURTIME()
 		)
 	</insert>
+	
+	
+	
+	
 
 	<resultMap id="selectUserInfo" type="com.myheart.iylm.vo.UserVo">
 		<result property="userNo" column="user_no" />
@@ -57,11 +61,43 @@
 		SELECT	*	
 		FROM	tb_user
 	</select>
+	
+	<resultMap id="selectSnsUserInfo" type="com.myheart.iylm.vo.UserSnsVo">
+		<result property="userNo" column="user_no" />
+		<result property="snsId" column="sns_id" />
+		<result property="snsType" column="sns_type" />
+		<result property="userName" column="username" />
+		<result property="email" column="email" />
+		<result property="reqDt" column="reg_dt" />
+	</resultMap>
+	
+	<select id="selectSnsUserList" resultMap="selectSnsUserInfo">
+		SELECT *
+		FROM	tb_sns
+	</select>
+	
+	<select id="searchSnsUserListById" parameterType="String" resultType="hashmap">
+		SELECT	*	
+		FROM	tb_sns 
+		WHERE	sns_id		= #{snsId}
+	</select>
+	
+	<select id="searchSnsUserListByEmail" parameterType="String" resultType="hashmap">
+		SELECT	*	
+		FROM	tb_sns 
+		WHERE	email		= #{email}
+	</select>
 
 	<select id="searchUserListById" parameterType="map" resultType="hashmap">
 		SELECT	*	
 		FROM	tb_user 
 		WHERE	user_id		= #{userId}
+	</select>
+	
+	<select id="searchUserListByEmail" parameterType="String" resultType="hashmap">
+		SELECT	*	
+		FROM	tb_user 
+		WHERE	email		= #{email}
 	</select>
 
 	<select id="loginUserChkIdPass" parameterType="map" resultType="int">
@@ -70,6 +106,14 @@
 		WHERE	user_id		= #{userId}
 		AND		password	= #{password}
 	</select>
+	
+	<update id="mergeAccount" parameterType="map">
+		UPDATE tb_user 
+		SET			user_id 	= #{userId}
+					,password	= #{password}
+					,phone_num = #{phoneNum} 
+		WHERE 	sns_id 		= #{snsId} 
+	</update>
 
 </mapper>
      

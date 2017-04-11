@@ -30,14 +30,6 @@ public class UserVo {
 	private String snsId;
 	//SNS 유형
 	private String snsType;
-	
-	@Override
-	public String toString() {
-		return "UserVo [userNo=" + userNo + ", userId=" + userId + ", snsId=" + snsId + ", snsType=" + snsType
-				+ ", userName=" + userName + ", password=" + password + ", phoneNum=" + phoneNum + ", email=" + email
-				+ ", reqDt=" + reqDt + "]";
-	}
-
 	//사용자 이름
 	private String userName;
 	//패스워드
@@ -119,6 +111,13 @@ public class UserVo {
 
 	public void setReqDt(Date reqDt) {
 		this.reqDt = reqDt;
+	}
+
+	@Override
+	public String toString() {
+		return "UserVo [userNo=" + userNo + ", userId=" + userId + ", snsId=" + snsId + ", snsType=" + snsType
+				+ ", userName=" + userName + ", password=" + password + ", phoneNum=" + phoneNum + ", email=" + email
+				+ ", reqDt=" + reqDt + "]";
 	}
 
 }

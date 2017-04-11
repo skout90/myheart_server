@@ -25,7 +25,7 @@ import com.myheart.iylm.vo.UserVo;
  * @since 2017. 4. 2.
  * @version 1.0
  *
- * Copyright (C) 2017 by MYHEART All right reserved.
+ *          Copyright (C) 2017 by MYHEART All right reserved.
  */
 
 @Service("userService")
@@ -45,13 +45,15 @@ public class UserService {
 		this.userMapper.insertUser(userVo);
 
 	}
-	
+
 	/**
 	 * 
 	 * @param userSnsVo
 	 */
-	public void insertUserSnsService(UserSnsVo userSnsVo){
+	public void insertUserSnsService(UserSnsVo userSnsVo) {
+		
 		this.userMapper.insertSnsUser(userSnsVo);
+		
 	}
 
 	/**
@@ -65,6 +67,39 @@ public class UserService {
 	public List<UserVo> selectUserList(UserVo userVo) throws Exception {
 
 		return this.userMapper.selectUserList(userVo);
+		
+	}
+	/**
+	 * 
+	 * @param snsId
+	 * @return
+	 * @throws Exception
+	 */
+	public List<UserSnsVo> searchSnsUserListBySnsId(String snsId) throws Exception {
+
+		return this.userMapper.searchSnsUserListById(snsId);
+		
+	}
+	/**
+	 * 
+	 * @param email
+	 * @return
+	 * @throws Exception
+	 */
+	public List<UserSnsVo> searchSnsUserListByEmail(String email) throws Exception {
+		return this.userMapper.searchSnsUserListByEmail(email);
+	}
+
+	/**
+	 * 
+	 * @param userSnsVo
+	 * @return
+	 * @throws Exception
+	 */
+	public List<UserSnsVo> selectSnsUserList(UserSnsVo userSnsVo) throws Exception {
+
+		return this.userMapper.selectSnsUserList(userSnsVo);
+		
 	}
 
 	/**
@@ -79,7 +114,19 @@ public class UserService {
 
 		return this.userMapper.searchUserListById(userId);
 	}
-	
+
+	/**
+	 * 
+	 * @param email
+	 * @return
+	 * @throws Exception
+	 */
+	public List<UserVo> searchUserListByEmail(String email) throws Exception {
+
+		return this.userMapper.searchUserListByEmail(email);
+		
+	}
+
 	/**
 	 * 
 	 * @Author SeonHakJi
@@ -88,8 +135,12 @@ public class UserService {
 	 * @return
 	 */
 	public int loginUserChkIdPass(HashMap<String, Object> loginInfo) {
-		
+
 		return this.userMapper.loginUserChkIdPass(loginInfo);
+	}
+	
+	public void mergeAccount(HashMap<String, String> addUserInfo){
+		this.userMapper.mergeAccount(addUserInfo);
 	}
 
 }
