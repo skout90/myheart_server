@@ -40,10 +40,6 @@
 			,CURTIME()
 		)
 	</insert>
-	
-	
-	
-	
 
 	<resultMap id="selectUserInfo" type="com.myheart.iylm.vo.UserVo">
 		<result property="userNo" column="user_no" />

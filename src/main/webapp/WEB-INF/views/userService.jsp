@@ -20,8 +20,8 @@
 				datatype : "json",
 				data : {
 					"userId" : $('#userId').val(),
-					"snsId" : $('#snsId').val(),
-					"snsType" : $('#snsType').val(),
+			/* 	"snsId" : $('#snsId').val(),
+					"snsType" : $('#snsType').val(), */
 					"userName" : $('#userName').val(),
 					"password" : $('#password').val(),
 					"phoneNum" : $('#phoneNum').val(),
@@ -113,8 +113,8 @@
 		FB.getLoginStatus(function(response) {
 
 			if (response.status === 'connected') {//페이스북 로그인 상태라면 로그인 페이지 안나오고 바로 웹에 접근
-						document.getElementById('status').innerHTML = 'We are connected.';
-						document.getElementById('login').style.visibility = 'hidden';
+						/* document.getElementById('status').innerHTML = 'We are connected.';
+						document.getElementById('login').style.visibility = 'hidden'; */
 						
 						
 						var accessToken=response.authResponse.accessToken;
@@ -140,7 +140,7 @@
 		 FB.Event.subscribe('auth.login', function(response) {
 			//window.location.href = './userManageHome';
 			if(response.status === 'connected' ){
-				console.log("response->accessToken:::"+JSON.stringify(response.authResponse.accessToken));
+// 				console.log("response->accessToken:::"+JSON.stringify(response.authResponse.accessToken));
 				getInfo();
 				
 			}
@@ -152,14 +152,14 @@
 			FB.login(
 							function(response) {
 								if (response.status === 'connected') {
-									document.getElementById('status').innerHTML = 'We are connected.';
-									document.getElementById('login').style.visibility = 'hidden';
+									/* document.getElementById('status').innerHTML = 'We are connected.';
+									document.getElementById('login').style.visibility = 'hidden'; */
 					
 								
 								} else if (response.status === 'not_authorized') {
-									document.getElementById('status').innerHTML = 'We are not logged in.'
+									/* document.getElementById('status').innerHTML = 'We are not logged in.' */
 								} else {
-									document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
+// 									document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
 								}
 							}
 							
@@ -172,8 +172,8 @@
 			FB.api('/me', 'GET', {
 				 fields : 'name,id,email' 
 			}, function(response) {
-				document.getElementById('status').innerHTML = response.id;
-				console.log("login.response : "+JSON.stringify(response));
+// 				document.getElementById('status').innerHTML = response.id;
+// 				console.log("login.response : "+JSON.stringify(response));
 				
 				 $.ajax({
 						type : "POST",
@@ -206,9 +206,9 @@
 								datatype : "json",
 								data : {
 									"snsId" : response.id,
-									"userId":$('#userId').val(),
-									"password":$('#password').val(),
-									"phoneNum" : $('#phoneNum').val()
+									"userId":$('#userId_merge').val(),
+									"password":$('#password_merge').val(),
+									"phoneNum" : $('#phoneNum_merge').val()
 									
 								},
 								success : function(data) {
@@ -228,25 +228,23 @@
 	<br />
 	<br />
 	<h3> 계정 통합을 위한 추가 사용자 정보 등록</h3>
-	<input type="text" id="userId" name="userId" placeholder="아이디" />
+	<input type="text" id="userId_merge" name="userId" placeholder="아이디" />
 	<br />
-	<input type="password" id="password" name="password"
+	<input type="password" id="password_merge" name="password"
 		placeholder="Password" />
 	<br />
-	<input type="text" id="phoneNum" name="phoneNum"
+	<input type="text" id="phoneNum_merge" name="phoneNum"
 		placeholder="Phone Number" />
 	<br />
-	
-	
-	<button onclick="getInfoToMerge()">계정 통합</button>
+	<button  onclick="getInfoToMerge()">계정 통합</button>
 
-	<h3>사용자 등록</h3>
+	<h3>일반 회원가입</h3>
 	<input type="text" id="userId" name="userId" placeholder="아이디" />
 	<br />
-	<input type="text" id="snsId" name="snsId" placeholder="SNS아이디"  />
+	<!-- <input type="text" id="snsId" name="snsId" placeholder="SNS아이디"  />
 	<br />
 	<input type="text" id="snsType" name="snsType" placeholder="SNS종류" />
-	<br />
+	<br /> -->
 	<input type="text" id="userName" name="userName" placeholder="이름" />
 	<br />
 	<input type="password" id="password" name="password"
