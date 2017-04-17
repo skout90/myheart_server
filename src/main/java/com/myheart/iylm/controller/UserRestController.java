@@ -1,16 +1,15 @@
 package com.myheart.iylm.controller;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.util.BeanUtil;
 import com.myheart.iylm.service.UserService;
 import com.myheart.iylm.vo.UserSnsVo;
 import com.myheart.iylm.vo.UserVo;
@@ -46,15 +45,21 @@ public class UserRestController {
 	 * @param userVo
 	 * @param model
 	 * @return
+	 * @throws Exception 
 	 */
 
 	@RequestMapping(value = "insertUser", method = RequestMethod.POST)
-	public void insertUser(UserVo userVo) {
+	public void insertUser(UserVo userVo) throws Exception {
+		
+		HashMap<String,Object> paramMap = new HashMap<String,Object>();
+		paramMap.put("userId", userVo.getUserId());
 
-		Date date = new Date();
-		userVo.setReqDt(date);
-
-		userService.insertUserService(userVo);
+		if(userService.searchUserListByEmail((String)userVo.getEmail()).size()<1 & userService.searchUserListById(paramMap).size()<1){
+			userService.insertUserService(userVo);
+		}else{
+			System.out.println("이미 등록된 존재.");
+		}
+		
 	}
 
 	@RequestMapping(value = "selectUserList", method = RequestMethod.GET)
@@ -110,20 +115,29 @@ public class UserRestController {
 	}
 	
 	@RequestMapping(value="mergeAccount", method=RequestMethod.POST)
-	public void mergeAccount(HashMap<String,String> addUserInfo) throws Exception{
-	System.out.println("snsId:::"+addUserInfo.get("snsId"));
+	public void mergeAccount(@RequestParam("snsId") String snsId, @RequestParam("userId") String userId, 
+			@RequestParam("password") String password, @RequestParam("phoneNum") String phoneNum, 
+			HashMap<String,String> addUserInfo) throws Exception{
+		System.out.println("mergeAccount");
+		addUserInfo.put("snsId", snsId);
+		addUserInfo.put("password", password);
+		addUserInfo.put("phoneNum",phoneNum);
+		addUserInfo.put("userId",userId);
+		
 		userService.mergeAccount(addUserInfo);
 		
 	}
 
-	@RequestMapping(value = "loginService", method = RequestMethod.POST)
-	public boolean loginService(@RequestParam("loginUserId") String loginUserId,
-			@RequestParam("loginPassword") String loginPassword) throws Exception {
+	@RequestMapping(value = "loginService", method = {RequestMethod.POST,RequestMethod.GET})
+	public boolean loginService(@PathVariable("loginUserId") String loginUserId,
+			@PathVariable("loginPassword") String loginPassword) throws Exception {
+
+		System.out.println("loginService:::");
 
 		HashMap<String, Object> loginInfoMap = new HashMap<String, Object>();
 		loginInfoMap.put("userId", loginUserId);
 		loginInfoMap.put("password", loginPassword);
-
+		
 		if (userService.loginUserChkIdPass(loginInfoMap) > 0) {
 			return true;
 		} else {
