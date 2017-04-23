@@ -1,5 +1,7 @@
 package com.myheart.iylm.vo;
 
+import com.myheart.iylm.CommonVo;
+
 /**
  * <pre>
  * Class Name  : DiseaseVo.java
@@ -17,13 +19,17 @@ package com.myheart.iylm.vo;
  *
  * Copyright (C) 2017 by MyHeart All right reserved.
  */
-public class DiseaseVo {
-
+public class DiseaseVo extends CommonVo {
+	// 질병 코드
 	private String diseaseCd;
+	// 질병명
 	private String diseaseNm;
+	// 질병명(영어)
 	private String diseaseNmEn;
-	private String diseaseCd1;
-	private String diseaseCd2;
+	// 주 질병 타입
+	private String typeCd1;
+	// 서브 질병 타입
+	private String typeCd2;
 
 	public String getDiseaseCd() {
 		return diseaseCd;
@@ -49,20 +55,20 @@ public class DiseaseVo {
 		this.diseaseNmEn = diseaseNmEn;
 	}
 
-	public String getDiseaseCd1() {
-		return diseaseCd1;
+	public String getTypeCd1() {
+		return typeCd1;
 	}
 
-	public void setDiseaseCd1(String diseaseCd1) {
-		this.diseaseCd1 = diseaseCd1;
+	public void setTypeCd1(String typeCd1) {
+		this.typeCd1 = typeCd1;
 	}
 
-	public String getDiseaseCd2() {
-		return diseaseCd2;
+	public String getTypeCd2() {
+		return typeCd2;
 	}
 
-	public void setDiseaseCd2(String diseaseCd2) {
-		this.diseaseCd2 = diseaseCd2;
+	public void setTypeCd2(String typeCd2) {
+		this.typeCd2 = typeCd2;
 	}
 
 }
