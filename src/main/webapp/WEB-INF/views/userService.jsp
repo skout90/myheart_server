@@ -177,7 +177,7 @@
 				
 				 $.ajax({
 						type : "POST",
-						url : "./user/socialInsertUser",
+						url : "./user/insertUser",
 						datatype : "json",
 						data : {
 
@@ -277,6 +277,7 @@
 	${userList.password} 
 	${userList.phoneNum} 
 	${userList.email} 
+	${userList.deviceToken} 
 	${userList.reqDt} 
 	<br />
 	</c:forEach> 
@@ -285,17 +286,6 @@
 	<input type="text" id="searchWord" />
 	<button type="button" id="searchBtn">검색</button>
 	
-	<h3>SNS 등록 사용자 조회 </h3>
-	
-	<c:forEach items="${selectSnsUserList}" var="snsUserList">
-		${snsUserList.userNo}
-		 ${snsUserList.snsId }
-		${snsUserList.snsType }
-		${snsUserList.userName}
-		${snsUserList.email }
-		${snsUserList.reqDt} 
-	<br/>
-	</c:forEach> 
 
 
 	<c:if test="${not empty pageContext.request.userPrincipal }">

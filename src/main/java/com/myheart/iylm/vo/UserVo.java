@@ -38,6 +38,17 @@ public class UserVo {
 	private String phoneNum;
 	//이메일
 	private String email;
+	//디바이스 토큰 정보
+	private String deviceToken;
+	
+	public String getDeviceToken() {
+		return deviceToken;
+	}
+
+	public void setDeviceToken(String deviceToken) {
+		this.deviceToken = deviceToken;
+	}
+
 	//등록일자
 	private Date reqDt;
 

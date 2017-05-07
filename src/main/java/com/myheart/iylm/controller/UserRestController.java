@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.myheart.iylm.service.UserService;
-import com.myheart.iylm.vo.UserSnsVo;
 import com.myheart.iylm.vo.UserVo;
 
 /**
@@ -48,14 +47,16 @@ public class UserRestController {
 	 * @throws Exception
 	 */
 
-	@RequestMapping(value = "insertUser", method = RequestMethod.POST)
-	public void insertUser(UserVo userVo) throws Exception {
-
+	@RequestMapping(value = "insertUser", method = {RequestMethod.POST})
+	public void insertUser(@RequestBody UserVo userVo) throws Exception {
+		System.out.println("insertUser()");
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("userId", userVo.getUserId());
+		paramMap.put("snsId", userVo.getSnsId());
 
-		if (userService.searchUserListByEmail((String) userVo.getEmail()).size() < 1
-				& userService.searchUserListById(paramMap).size() < 1) {
+		if (userService.searchUserListByEmail(userVo.getEmail()).size() < 1
+				& userService.searchUserListById(paramMap).size() < 1
+				& userService.searchUserListByFbSnsId(paramMap).size() < 1) {
 			userService.insertUserService(userVo);
 		} else {
 			System.out.println("이미 등록된 존재.");
@@ -66,39 +67,7 @@ public class UserRestController {
 	@RequestMapping(value = "selectUserList", method = RequestMethod.GET)
 	public List<UserVo> selectUserList(UserVo userVo) throws Exception {
 
-		// model.addAttribute("selectUserList",
-		// userService.selectUserList(userVo));
-
 		return userService.selectUserList(userVo);
-	}
-
-	@RequestMapping(value = "selectSnsUserList", method = RequestMethod.GET)
-	public List<UserSnsVo> selectSnsUserList(UserSnsVo userSnsVo) throws Exception {
-
-		// model.addAttribute("selectSnsUserList",
-		// userService.selectUserSnsList(userSnsVo));
-
-		return userService.selectSnsUserList(userSnsVo);
-	}
-
-	@RequestMapping(value = "socialInsertUser", method = RequestMethod.POST)
-	public void socialLoginService(UserSnsVo userSnsVo) throws Exception {
-		// 계정 통합버튼 입력 받지 못한 추가 사용자 정보 update
-
-		if (userService.searchSnsUserListBySnsId(userSnsVo.getSnsId()).size() < 1) {
-			userService.insertUserSnsService(userSnsVo);
-
-			// user 테이블에 sns 사용자 정보 저장
-			UserVo userVo = new UserVo();
-			userVo.setSnsId(userSnsVo.getSnsId());
-			userVo.setSnsType(userSnsVo.getSnsType());
-			userVo.setUserName(userSnsVo.getUserName());
-			userVo.setEmail(userSnsVo.getEmail());
-
-			userService.insertUserService(userVo);
-		} else {
-			System.out.println("이미 등록된 계정 존재.");
-		}
 
 	}
 
@@ -134,16 +103,16 @@ public class UserRestController {
 
 		System.out.println("loginService:::");
 		System.out.println(data);
-		return true;
-		/*
-		 * HashMap<String, Object> loginInfoMap = new HashMap<String, Object>();
-		 * loginInfoMap.put("userId", loginUserId);
-		 * 
-		 * 
-		 * /*if (userService.loginUserChkIdPass(loginInfoMap) > 0) {
-		 * 
-		 * return true; } else { return false; }
-		 */
+		
+		if (userService.loginUserChkIdPass(data) > 0) {
+
+			return true;
+
+		} else {
+
+			return false;
+
+		}
 
 	}
 

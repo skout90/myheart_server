@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.myheart.iylm.mapper.UserMapper;
-import com.myheart.iylm.vo.UserSnsVo;
 import com.myheart.iylm.vo.UserVo;
 
 /**
@@ -16,12 +15,12 @@ import com.myheart.iylm.vo.UserVo;
  * Description :
  * Modification Information
  *
- *    �닔�젙�씪������ ����  �닔�젙�옄������     �닔�젙�궡�슜
- *    ������������������������   ������������������   ��������������������������������������������������������������
- *    2017. 4. 2.   吏��꽑�븰              理쒖큹�깮�꽦
+ *   수정일　　　 　　  수정자　　　     수정내용
+ *    ────────────   ─────────   ───────────────────────────────
+ *    2017. 4. 2.   지선학              최초생성
  * </pre>
  *
- * @author 吏��꽑�븰
+ * @author 지선학
  * @since 2017. 4. 2.
  * @version 1.0
  *
@@ -48,16 +47,6 @@ public class UserService {
 
 	/**
 	 * 
-	 * @param userSnsVo
-	 */
-	public void insertUserSnsService(UserSnsVo userSnsVo) {
-		
-		this.userMapper.insertSnsUser(userSnsVo);
-		
-	}
-
-	/**
-	 * 
 	 * @Author SeonHakJi
 	 * @Comment �궗�슜�옄 議고쉶
 	 * @param userVo
@@ -67,39 +56,7 @@ public class UserService {
 	public List<UserVo> selectUserList(UserVo userVo) throws Exception {
 
 		return this.userMapper.selectUserList(userVo);
-		
-	}
-	/**
-	 * 
-	 * @param snsId
-	 * @return
-	 * @throws Exception
-	 */
-	public List<UserSnsVo> searchSnsUserListBySnsId(String snsId) throws Exception {
 
-		return this.userMapper.searchSnsUserListById(snsId);
-		
-	}
-	/**
-	 * 
-	 * @param email
-	 * @return
-	 * @throws Exception
-	 */
-	public List<UserSnsVo> searchSnsUserListByEmail(String email) throws Exception {
-		return this.userMapper.searchSnsUserListByEmail(email);
-	}
-
-	/**
-	 * 
-	 * @param userSnsVo
-	 * @return
-	 * @throws Exception
-	 */
-	public List<UserSnsVo> selectSnsUserList(UserSnsVo userSnsVo) throws Exception {
-
-		return this.userMapper.selectSnsUserList(userSnsVo);
-		
 	}
 
 	/**
@@ -114,6 +71,17 @@ public class UserService {
 
 		return this.userMapper.searchUserListById(userId);
 	}
+	/**
+	 * @Author SeonHakJi
+	 * @Comment snsId로 사용자 검색
+	 * @param snsId
+	 * @return
+	 * @throws Exception
+	 */
+	public List<UserVo> searchUserListByFbSnsId(HashMap<String, Object> snsId) throws Exception {
+
+		return this.userMapper.searchUserListByFbSnsId(snsId);
+	}
 
 	/**
 	 * 
@@ -124,7 +92,7 @@ public class UserService {
 	public List<UserVo> searchUserListByEmail(String email) throws Exception {
 
 		return this.userMapper.searchUserListByEmail(email);
-		
+
 	}
 
 	/**
@@ -139,7 +107,11 @@ public class UserService {
 		return this.userMapper.loginUserChkIdPass(loginInfo);
 	}
 	
-	public void mergeAccount(HashMap<String, String> addUserInfo){
+	/**
+	 * 
+	 * @param addUserInfo
+	 */
+	public void mergeAccount(HashMap<String, String> addUserInfo) {
 		this.userMapper.mergeAccount(addUserInfo);
 	}
 
