@@ -6,8 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.myheart.iylm.dto.UserVo;
-import com.myheart.iylm.service.impl.UserService;
+import com.myheart.iylm.service.UserService;
+import com.myheart.iylm.vo.UserVo;
 
 /**
  * <pre>
@@ -27,30 +27,26 @@ import com.myheart.iylm.service.impl.UserService;
  * Copyright (C) 2017 by MYHEART All right reserved.
  */
 
-@RequestMapping(value="/user")
+@RequestMapping(value = "/user")
 @Controller
 public class UserController {
-	
-	 @Autowired
-	 UserService userService;
-	
 
-	/**
-	 * @Author apple
-	 * @Comment
-	 * @param userVo
-	 * @param model
-	 * @return
-	 */
-	@RequestMapping("insertUser")
+    @Autowired
+    UserService userService;
 
-	public String insertUser(@RequestParam UserVo userVo,Model model){
-		
-		userService.insertUserService(userVo);
+    /**
+     * @Author apple
+     * @Comment
+     * @param userVo
+     * @param model
+     * @return
+     */
+    @RequestMapping("insertUser")
 
-		
-		return "userService";
-	}
-	
+    public String insertUser(@RequestParam UserVo userVo, Model model) throws Exception {
+        this.userService.insert(userVo);
+
+        return "userService";
+    }
 
 }

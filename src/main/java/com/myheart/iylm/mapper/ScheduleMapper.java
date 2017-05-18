@@ -1,7 +1,6 @@
 package com.myheart.iylm.mapper;
 
-import java.util.List;
-
+import com.myheart.iylm.common.DataMap;
 import com.myheart.iylm.vo.ScheduleVo;
 
 /**
@@ -21,13 +20,5 @@ import com.myheart.iylm.vo.ScheduleVo;
  *
  * Copyright (C) 2017 by MyHeart All right reserved.
  */
-public interface ScheduleMapper {
-    /**
-     * @Author 남준호
-     * @Comment 스케줄 정보 리스트를 리턴합니다.
-     * @param scheduleVo
-     * @return
-     * @throws Exception
-     */
-    public List<ScheduleVo> selectList(ScheduleVo scheduleVo) throws Exception;
+public interface ScheduleMapper extends GenericMapper<DataMap, ScheduleVo> {
 }

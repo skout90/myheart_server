@@ -52,7 +52,7 @@
 	<filter>
          <filter-name>crosFilter</filter-name>
          <filter-class>
-              com.myheart.iylm.common.filter.SimpleCORSFilter
+              com.myheart.iylm.common.SimpleCORSFilter
          </filter-class>
     </filter>
     <filter-mapping>

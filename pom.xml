@@ -183,6 +183,23 @@
 		    <artifactId>aspectjrt</artifactId>
 		    <version>${org.aspectj-version}</version>
 		</dependency>
+        
+        <!-- Apache Util -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.3</version>
+        </dependency>
 	</dependencies>
 
 	<build>

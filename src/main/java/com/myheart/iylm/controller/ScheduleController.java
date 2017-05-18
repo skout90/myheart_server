@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.myheart.iylm.common.DataMap;
 import com.myheart.iylm.service.ScheduleService;
 import com.myheart.iylm.vo.ScheduleVo;
 
@@ -40,7 +41,7 @@ public class ScheduleController {
      * @return
      */
     @RequestMapping(value = "list")
-    public List<ScheduleVo> selectScheduleList(ScheduleVo scheduleVo) throws Exception {
+    public List<DataMap> selectScheduleList(ScheduleVo scheduleVo) throws Exception {
         return this.scheduleService.selectList(scheduleVo);
     }
 }

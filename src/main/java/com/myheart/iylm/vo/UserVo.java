@@ -1,4 +1,4 @@
-package com.myheart.iylm.dto;
+package com.myheart.iylm.vo;
 
 import java.util.Date;
 

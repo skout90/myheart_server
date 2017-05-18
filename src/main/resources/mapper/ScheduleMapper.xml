@@ -18,21 +18,12 @@
   Copyright (C) 2017 by MyHeart All right reserved.
 -->
 <mapper namespace="com.myheart.iylm.mapper.ScheduleMapper">
-    <resultMap id="scheduleVo" type="com.myheart.iylm.vo.ScheduleVo" >
-        <result property="schNo"        column="sch_no" />
-        <result property="startDt"      column="start_dt" />
-        <result property="endDt"        column="end_dt" />
-        <result property="timeDivision" column="time_division" />
-        <result property="pushTime"     column="push_time" />
-    </resultMap>
-
     <sql id="selectSearchWhere">
 
     </sql>
 
-    <select id="selectList" resultMap="scheduleVo">
+    <select id="selectList" resultType="dataMap">
         SELECT  *
         FROM    tb_schedule
     </select>
-    
 </mapper>

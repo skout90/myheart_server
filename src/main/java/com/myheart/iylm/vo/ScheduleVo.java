@@ -30,6 +30,8 @@ public class ScheduleVo {
     String timeDivision;
     // 푸시 시간
     String pushTime;
+    // 디바이스 토큰
+    String deviceToken;
 
     public Integer getSchNo() {
         return schNo;
@@ -70,4 +72,13 @@ public class ScheduleVo {
     public void setPushTime(String pushTime) {
         this.pushTime = pushTime;
     }
+
+    public String getDeviceToken() {
+        return deviceToken;
+    }
+
+    public void setDeviceToken(String deviceToken) {
+        this.deviceToken = deviceToken;
+    }
+
 }
