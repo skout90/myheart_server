@@ -19,6 +19,8 @@ import java.util.Date;
  *
  * Copyright (C) 2017 by MyHeart All right reserved.
  */
+@lombok.Getter
+@lombok.Setter
 public class ScheduleVo {
     // 스케줄 일련번호
     Integer schNo;
@@ -32,53 +34,5 @@ public class ScheduleVo {
     String pushTime;
     // 디바이스 토큰
     String deviceToken;
-
-    public Integer getSchNo() {
-        return schNo;
-    }
-
-    public void setSchNo(Integer schNo) {
-        this.schNo = schNo;
-    }
-
-    public Date getStartDt() {
-        return startDt;
-    }
-
-    public void setStartDt(Date startDt) {
-        this.startDt = startDt;
-    }
-
-    public Date getEndDt() {
-        return endDt;
-    }
-
-    public void setEndDt(Date endDt) {
-        this.endDt = endDt;
-    }
-
-    public String getTimeDivision() {
-        return timeDivision;
-    }
-
-    public void setTimeDivision(String timeDivision) {
-        this.timeDivision = timeDivision;
-    }
-
-    public String getPushTime() {
-        return pushTime;
-    }
-
-    public void setPushTime(String pushTime) {
-        this.pushTime = pushTime;
-    }
-
-    public String getDeviceToken() {
-        return deviceToken;
-    }
-
-    public void setDeviceToken(String deviceToken) {
-        this.deviceToken = deviceToken;
-    }
 
 }
