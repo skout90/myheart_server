@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+  Class Name  : PrescriptionMapper.xml
+  Description : 처방전 매퍼
+  Modification Information
+
+       수정일                     수정자              수정내용
+    ────────────   ─────────   ───────────────────────────────
+    2017. 5. 24.   남준호              최초생성
+
+  @author 남준호
+  @since 2017. 5. 24.
+  @version 1.0
+
+  Copyright (C) 2017 by MyHeart All right reserved.
+-->
+<mapper namespace="com.myheart.iylm.mapper.PrescriptionMapper">
+    <sql id="selectSearchWhere">
+
+    </sql>
+
+    <select id="selectList" resultType="dataMap">
+        SELECT  *
+        FROM    tb_prescription
+    </select>
+    
+    <insert id="insert">
+        INSERT INTO tb_prescription ( 
+            user_no
+            ,main_disease_cd
+            ,sub_disease_cd
+        ) VALUES (
+            #{userNo}
+            ,#{mainDiseaseCd}
+            ,#{subDiseaseCd}
+        )
+    </insert>
+
+    <insert id="insertDetail">
+        INSERT INTO tb_prescription_detail ( 
+            ps_no
+            ,drug_cd
+            ,dose_cnt
+            ,day_cnt
+        ) VALUES (
+            #{psNo}
+            ,#{drugCd}
+            ,#{doseCnt}
+            ,#{dayCnt}
+        )
+    </insert>
+</mapper>
