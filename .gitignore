@@ -2,6 +2,7 @@
 target/
 
 pom.properties
+rebel.xml
 
 # Compiled class file
 *.class
@@ -26,9 +27,6 @@ pom.properties
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*/target/
 /build/
-<<<<<<< HEAD
-*.class
-=======
 *.class
 /target/
 /build/
@@ -56,4 +54,3 @@ hs_err_pid*/target/
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
->>>>>>> branch 'dev' of https://github.com/skout90/myheart_server.git

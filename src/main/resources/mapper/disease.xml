@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myheart.iylm.mapper.DiseaseMapper">
+
+	<resultMap id="DiseaseInfo" type="com.myheart.iylm.vo.DiseaseVo">
+		<result property="diseaseCd" column="disease_cd" />
+		<result property="diseaseNm" column="disease_nm" />
+		<result property="diseaseNmEn" column="disease_nm_en" />
+		<result property="diseaseCd1" column="type_cd1" />
+		<result property="diseaseCd2" column="type_cd2" />
+	</resultMap>
+
+	<select id="selectDiseaseList" resultMap="DiseaseInfo">
+		SELECT disease_cd,
+			   disease_nm,
+			   disease_nm_en,
+			   description,
+			   type_cd1,
+			   type_cd2
+		FROM tb_disease
+		
+		<where>
+			<if test="searchType != null and searchName != null">
+				#{searchType} LIKE '%'+#{searchName}+'%'
+			</if>
+		</where>
+		
+		LIMIT #{offset}, #{limit}
+	</select>
+	
+	<select id="selectDiseaseView" resultMap="DiseaseInfo">
+		SELECT disease_cd,
+			   disease_nm,
+			   disease_nm_en,
+			   description,
+			   type_cd1,
+			   type_cd2
+		FROM tb_disease
+
+		
+	</select>
+	
+	<insert id="insert"></insert>
+
+</mapper>
+     
+   
+
