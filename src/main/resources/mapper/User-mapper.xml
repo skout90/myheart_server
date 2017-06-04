@@ -48,7 +48,7 @@
 	<select id="searchUserListById" parameterType="map" resultType="hashmap">
 		SELECT	*	
 		FROM	tb_user 
-		WHERE	user_id		= #{userId}
+		WHERE	user_id	= #{userId}
 	</select>
 	
 	<select id="searchUserListByFbSnsId" parameterType="map" resultType="hashmap">
